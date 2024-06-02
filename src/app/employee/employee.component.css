@@ -1,3 +1,57 @@
-.cursor-pointer {
-  cursor: pointer;
+.employee-management-container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+
+.employee-management-title {
+  color: #333;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.btn-add-employee, .btn-search, .btn-logout {
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  margin-bottom: 10px; 
+  margin-right: 10px;
+}
+
+.btn-add-employee:hover, .btn-search:hover, .btn-logout:hover {
+  background-color: blue;
+}
+
+.table-employee {
+  background-color: #fff;
+}
+
+.table-employee tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.input-search {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+  height: fit-content;
+}
+
+.input-search:focus {
+  border-color: orange;
+  outline: none;
+}
+
+.btn-search {
+  border-radius: 0 5px 5px 0; 
+  height: fit-content;
+}
+
