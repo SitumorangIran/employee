@@ -1,1 +1,2 @@
-Cara menjalankan Projek
+Projek ini menggunakan angular versi 16.2
+
