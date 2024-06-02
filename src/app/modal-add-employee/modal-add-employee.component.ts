@@ -8,6 +8,7 @@ import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core
 export class ModalAddEmployeeComponent implements OnChanges {
   @Input() showModal: any;
   @Input() dataEditModal: any;
+  @Input() dataDetailModal: any;
   @Output() closeModal: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() employeeAddedModal: EventEmitter<any> = new EventEmitter<any>();
   @Output() employeeEditedModal: EventEmitter<any> = new EventEmitter<any>();
@@ -62,7 +63,18 @@ export class ModalAddEmployeeComponent implements OnChanges {
       this.status = this.dataEditModal.status || '';
       this.group = this.dataEditModal.group || '';
       this.description = this.dataEditModal.description || '';
-    } else {
+    } else if (this.dataDetailModal){
+      this.modalTitle = 'Detail Data Employee';
+      this.username = this.dataDetailModal.username || '';
+      this.firstName = this.dataDetailModal.firstName || '';
+      this.lastName = this.dataDetailModal.lastName || '';
+      this.email = this.dataDetailModal.email || '';
+      this.birthDate = this.dataDetailModal.birthDate || new Date().toISOString().substr(0, 10);
+      this.basicSalary = this.dataDetailModal.basicSalary || 0;
+      this.status = this.dataDetailModal.status || '';
+      this.group = this.dataDetailModal.group || '';
+      this.description = this.dataDetailModal.description || '';
+    }else {
       this.modalTitle = 'Add Data Employee';
     }
   }
@@ -104,6 +116,23 @@ export class ModalAddEmployeeComponent implements OnChanges {
 
     if (!this.cekValidFirst) {
       this.employeeAddedModal.emit(newEmployeeData);
+      this.close();
+    }
+  }
+
+  detailEmployee() {
+    if (this.dataDetailModal) {
+      this.dataDetailModal.username = this.username;
+      this.dataDetailModal.firstName = this.firstName;
+      this.dataDetailModal.lastName = this.lastName;
+      this.dataDetailModal.email = this.email;
+      this.dataDetailModal.birthDate = this.birthDate;
+      this.dataDetailModal.basicSalary = this.basicSalary;
+      this.dataDetailModal.status = this.status;
+      this.dataDetailModal.group = this.group;
+      this.dataDetailModal.description = this.description;
+
+      this.employeeEditedModal.emit(this.dataDetailModal);
       this.close();
     }
   }

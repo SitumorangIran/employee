@@ -73,8 +73,8 @@
 
           <div class="d-flex justify-content-end">
             <button type="button" class="btn btn-secondary me-2" (click)="close()">Close</button>
-            <button type="submit" class="btn btn-primary" (click)="addEmployee()" *ngIf="(!dataEditModal)">Add</button>
-            <button type="submit" class="btn btn-primary" (click)="editEmployee()" *ngIf="(dataEditModal)">Edit</button>
+            <button type="submit" class="btn btn-primary" (click)="addEmployee()" *ngIf="(!dataEditModal && !dataDetailModal)">Add Data</button>
+            <button type="submit" class="btn btn-primary" (click)="editEmployee()" *ngIf="(dataEditModal)">Update Data</button>
           </div>
         </form>
       </div>

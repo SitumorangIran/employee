@@ -22,6 +22,7 @@ export class EmployeeComponent {
 
   showModal: boolean = false;
   isAscending: boolean = true;
+  selectedDetailData: any = null;
   selectedEditData: any = null;
   searchTerm: string = '';
   dummyDataEmployeeBackup: any = []
@@ -38,10 +39,10 @@ export class EmployeeComponent {
   dummyDataEmployee = [
     {
       id: Math.random(),
-      username: 'jdoe1',
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'jdoe1@example.com',
+      username: 'Iran',
+      firstName: 'Iran',
+      lastName: 'Situmorang',
+      email: 'ran@example.com',
       birthDate: new Date('1990-01-01'),
       basicSalary: 50000,
       status: 'Active',
@@ -50,10 +51,10 @@ export class EmployeeComponent {
     },
     {
       id: Math.random(),
-      username: 'jdoe2',
-      firstName: 'Jane',
-      lastName: 'Smith',
-      email: 'jsmith@example.com',
+      username: 'Iran2',
+      firstName: 'Iran',
+      lastName: 'Situmorang',
+      email: 'morang@example.com',
       birthDate: new Date('1985-05-15'),
       basicSalary: 55000,
       status: 'Active',
@@ -62,10 +63,10 @@ export class EmployeeComponent {
     },
     {
       id: Math.random(),
-      username: 'rwilliams',
-      firstName: 'Robert',
-      lastName: 'Williams',
-      email: 'rwilliams@example.com',
+      username: 'Situmorang',
+      firstName: 'Situmorang',
+      lastName: 'iran',
+      email: 'Situmorang@example.com',
       birthDate: new Date('1988-11-30'),
       basicSalary: 48000,
       status: 'Active',
@@ -338,8 +339,8 @@ export class EmployeeComponent {
     {
       id: Math.random(),
       username: 'tthomas',
-      firstName: 'Tyler',
-      lastName: 'Thomas',
+      firstName: 'Iran',
+      lastName: 'situmorang',
       email: 'tthomas@example.com',
       birthDate: new Date('1986-11-05'),
       basicSalary: 55000,
@@ -682,10 +683,10 @@ export class EmployeeComponent {
     },
     {
       id: Math.random(),
-      username: 'vhill',
-      firstName: 'Vincent',
+      username: 'Iran',
+      firstName: 'Iran',
       lastName: 'Hill',
-      email: 'vhill@example.com',
+      email: 'irans@example.com',
       birthDate: new Date('1989-01-15'),
       basicSalary: 59000,
       status: 'Active',
@@ -1099,10 +1100,10 @@ export class EmployeeComponent {
     },
     {
       id: Math.random(),
-      username: 'tcooper',
-      firstName: 'Thomas',
-      lastName: 'Cooper',
-      email: 'tcooper@example.com',
+      username: 'iranss',
+      firstName: 'iran',
+      lastName: 'situmroang',
+      email: 'irans@example.com',
       birthDate: new Date('1991-04-17'),
       basicSalary: 53000,
       status: 'Active',
@@ -1262,25 +1263,31 @@ export class EmployeeComponent {
 
   deleteData(id: number, username: string) {
     Swal.fire({
-      title: 'Konfirmasi?',
-      text: `Apakah anda ingin menghapus username ${username}?`,
+      title: 'Confirmation?',
+      text: `Do you want to delete the username ${username}?`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Ya, hapus!'
+      confirmButtonText: 'Yes, delete!'
     }).then((result) => {
       if (result.isConfirmed) {
         this.dummyDataEmployee = this.dummyDataEmployee.filter(item => item.id !== id);
         this.updateDummyDataBackup();
         this.updatePagination();
         Swal.fire(
-          'Terhapus!',
-          'Data Anda telah dihapus.',
+          'Deleted!',
+          'Your data has been deleted.',
           'success'
         );
       }
     });
+  }
+
+
+  detailData(item: any) {
+    this.selectedDetailData = item
+    this.showModal = true;
   }
 
   editData(item: any) {
@@ -1329,6 +1336,18 @@ export class EmployeeComponent {
     this.updatePagination();
   }
 
+  sortBasicSalary() {
+    this.isAscending = !this.isAscending;
+    this.dummyDataEmployee.sort((a, b) => {
+      const salaryA = parseFloat(a.basicSalary.toString());
+      const salaryB = parseFloat(b.basicSalary.toString());
+  
+      return this.isAscending ? salaryA - salaryB : salaryB - salaryA;
+    });
+    this.updateDummyDataBackup();
+    this.updatePagination();
+  }   
+  
   resetData() {
     this.dummyDataEmployee = this.dummyDataEmployeeAwal;
     this.updateDummyDataBackup(); 
