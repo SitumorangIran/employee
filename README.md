@@ -1,1 +1,1 @@
-Cara menjalana Projek
+Cara menjalankan Projek
