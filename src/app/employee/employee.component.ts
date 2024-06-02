@@ -13,6 +13,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./employee.component.css'],
 })
 export class EmployeeComponent {
+  toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    console.log('dark mode berhasil');
+  }
+  
   @ViewChild(ModalAddEmployeeComponent) modal!: ModalAddEmployeeComponent;
 
   showModal: boolean = false;

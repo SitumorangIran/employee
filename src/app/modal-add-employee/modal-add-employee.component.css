@@ -1,0 +1,38 @@
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .modal-header {
+    border-bottom: none;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .btn-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-control,
+  .form-select {
+    border-radius: 4px;
+  }
+  
+  .invalid-feedback {
+    font-size: 0.875rem;
+  }
+  
+  .d-flex {
+    margin-top: 1rem;
+  }
+  

@@ -1,3 +1,4 @@
+/* Light Mode Styles */
 .employee-management-container {
   background-color: #f8f9fa;
   padding: 20px;
@@ -55,3 +56,62 @@
   height: fit-content;
 }
 
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .employee-management-container {
+  background-color: #333333;
+  border-color: #444444;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .employee-management-title {
+  color: #ffffff;
+}
+
+body.dark-mode .btn-add-employee, 
+body.dark-mode .btn-search, 
+body.dark-mode .btn-logout {
+  background-color: #555555;
+  color: #ffffff;
+}
+
+body.dark-mode .btn-add-employee:hover, 
+body.dark-mode .btn-search:hover, 
+body.dark-mode .btn-logout:hover {
+  background-color: #666666;
+}
+
+body.dark-mode .table-employee {
+  background-color: #444444;
+}
+
+body.dark-mode .table-employee tbody tr:hover {
+  background-color: #555555;
+}
+
+body.dark-mode .pagination {
+  color: #ffffff;
+}
+
+body.dark-mode .input-search {
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #555555;
+}
+
+body.dark-mode .input-search:focus {
+  border-color: orange;
+}
+
+body.dark-mode .btn-search {
+  background-color: #555555;
+  border: 1px solid #555555;
+}
+
+body.dark-mode .btn-search:hover {
+  background-color: #666666;
+}
